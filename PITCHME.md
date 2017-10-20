@@ -136,6 +136,8 @@ DBにログインして都度構造を確認するのはツライ。。
 (引用元)
 https://en.wikipedia.org/wiki/Information_schema
 
+---
+
 # SchemaSpy
 
 - マイクロサービスアーキテクチャで知った
@@ -144,11 +146,15 @@ https://en.wikipedia.org/wiki/Information_schema
 (参考)
 https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 
+---
+
 # SchemaSpy
 
 - めっちゃよい
 
 （画面キャプチャ）
+
+---
 
 # SchemaSpyの問題点
 
@@ -160,15 +166,21 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 - 他のER逆生成ツールも大概同様の問題
   - MySQL Workbenchとか（すごいんですけどね）
 
+---
+
 # shishamo爆誕
 
 （よーさんが作ったアイコン画像）
+
+---
 
 # shishamo
 
 - MySQLのメタ情報を可視化するWebアプリケーション
 - オンラインでInformation Schemaにクエリを発行する
 - ししゃもはイルカの餌らしいので、MySQLのマスコットにあやかって命名
+
+---
 
 # shishamoの強み
 
@@ -179,6 +191,8 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 - Javaさえあればどこでも動く（やや誇張だけど）
   - ローカルでもテスト環境でも本番でも
 
+---
+
 # shishamo
 
 (画面キャプチャかデモの動画か)
@@ -188,19 +202,27 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 1. boot:run
 1. ブラウザアクセス
 
+---
+
 # shishamo
 
 拍手どうぞ
+
+---
 
 # shishamoの弱み
 
 - クエリ発行によるDBへの負荷
 - 静的ファイルより応答性能は劣る
 
+---
+
 # ここまでのまとめ
 
 - 「今どうなってるか」を正確に表すドキュメントは強い
 - shishamo便利そうじゃない？
+
+---
 
 # ネタ
 
