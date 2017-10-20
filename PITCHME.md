@@ -11,7 +11,7 @@ JJUG CCC 2017 Fall (2017/11/18)
 
 ## @su_kun_1899
 
-![Logo](https://pbs.twimg.com/profile_images/751787309322821633/BqUIbey1_400x400.jpg)
+![icon](https://pbs.twimg.com/profile_images/751787309322821633/BqUIbey1_400x400.jpg)
 
 PaDDエンジニア。モブプログラマー。心はいつでもスクラムマスター。  
 もっと楽しく仕事をする「PaDD」こと「Passion Driven Development」を心情に、自分が今いる現場を少しでも改善しようと日々奮闘してます。
@@ -106,6 +106,101 @@ DBにログインして都度構造を確認するのはツライ。。
 
 ---
 
+# データ構造をどう抑えるか
+
+- メタ情報からデータ構造を可視化する
+
+---
+
+# Information Schema
+
+- table, view, column, procedureの情報を読み取り専用Viewとして提供
+- 標準SQLで定義されている
+
+```sql
+=> SELECT count(table_name) FROM information_schema.tables;
+  count 
+ -------
+     99
+ (1 row)
+
+ => SELECT column_name, data_type, column_default, is_nullable
+       FROM information_schema.columns WHERE table_name='alpha';
+  column_name | data_type | column_default | is_nullable 
+ -------------+-----------+----------------+-------------
+  foo         | integer   |                | YES
+  bar         | character |                | YES
+ (2 rows)
+```
+
+(引用元)
+https://en.wikipedia.org/wiki/Information_schema
+
+# SchemaSpy
+
+- マイクロサービスアーキテクチャで知った
+- Information Schemaの情報を元にHTMLを生成
+
+(参考)
+https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
+
+# SchemaSpy
+
+- めっちゃよい
+
+（画面キャプチャ）
+
+# SchemaSpyの問題点
+
+- HTML生成によるタイムラグ
+- デプロイ場所
+  - S3にホスティングしてた
+- 並列コストが高め
+  - 並行開発って普通にあるよね。。
+- 他のER逆生成ツールも大概同様の問題
+  - MySQL Workbenchとか（すごいんですけどね）
+
+# shishamo爆誕
+
+（よーさんが作ったアイコン画像）
+
+# shishamo
+
+- MySQLのメタ情報を可視化するWebアプリケーション
+- オンラインでInformation Schemaにクエリを発行する
+- ししゃもはイルカの餌らしいので、MySQLのマスコットにあやかって命名
+
+# shishamoの強み
+
+- ~~HTML生成によるタイムラグ~~
+- ~~デプロイ場所~~
+- ~~並列コストが高め~~  
+- リアルタイムにメタ情報を可視化できる
+- Javaさえあればどこでも動く（やや誇張だけど）
+  - ローカルでもテスト環境でも本番でも
+
+# shishamo
+
+(画面キャプチャかデモの動画か)
+
+1. MySQLがある
+1. cloneして起動
+1. boot:run
+1. ブラウザアクセス
+
+# shishamo
+
+拍手どうぞ
+
+# shishamoの弱み
+
+- クエリ発行によるDBへの負荷
+- 静的ファイルより応答性能は劣る
+
+# ここまでのまとめ
+
+- 「今どうなってるか」を正確に表すドキュメントは強い
+- shishamo便利そうじゃない？
 
 # ネタ
 
