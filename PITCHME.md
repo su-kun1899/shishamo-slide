@@ -244,6 +244,8 @@ $ ./mvnw spring-boot:run \
 - MyBatis
 - Spock
 
+---
+
 # shishamo最大の強み
 
 - Javaさえあればどこでも動く
@@ -298,6 +300,9 @@ $ ./mvnw spring-boot:run \
 ---
 
 # ネタ
+
+- ハッシュタグタイトルに入れよう
+  - フィードバック下さい
 
 - SpringBootの話はあんまりしません
   - 踏み込んだ話というよりはひとつの活用事例として
