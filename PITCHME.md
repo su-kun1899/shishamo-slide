@@ -204,6 +204,20 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 
 ---
 
+# READMEより
+
+```console
+$ git clone git@github.com:su-kun1899/shishamo.git
+$ cd shishamo/
+$ ./mvnw spring-boot:run \
+    -Dspring.datasource.url=jdbc:mysql://<Your mysql host: localhost>>:<Your mysql port: 3306>/<Your mysql schema> \
+    -Dspring.datasource.schema=<Your mysql schema> \
+    -Dspring.datasource.username=<Your mysql user> \
+    -Dspring.datasource.password=<Your mysql password>
+```
+
+---
+
 # shishamo
 
 拍手どうぞ
@@ -220,11 +234,81 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 # ここまでのまとめ
 
 - 「今どうなってるか」を正確に表すドキュメントは強い
-- shishamo便利そうじゃない？
+- shishamo便利ですので使ってみて下さい！
+
+---
+
+# shishamoを支える技術
+
+- Spring Boot
+- MyBatis
+- Spock
+
+# shishamo最大の強み
+
+- Javaさえあればどこでも動く
+
+---
+
+# Spring Bootのおかげ
+
+---
+
+# Spring Boot
+
+> Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.
+
+個人的には何よりもこれ。
+
+---
+
+# 簡単・お手軽でありながら高機能・多機能なSpringに乗っかっている
+
+- あるといいながある
+
+---
+
+# 小さくはじめて大きく育てられる
+
+- shishamoは現時点では大したことはしていない
+- 機能追加したくなった時に、Springの世界が助けてくれる（と思う）
+
+---
+
+# ちょっと作ってみようがハイクオリティ
+
+- 雑に作ったツールが思いの外広まってカオス化したことないですか？
+
+---
+
+# Spring Bootで始めよう
+
+---
+
+# 余談
+
+---
+
+# まとめ
+
+- Spring BootでWebアプリ始めるの簡単
+- MyBatisのマッピングはかなり強力
+- Spock最高
 
 ---
 
 # ネタ
+
+- SpringBootの話はあんまりしません
+  - 踏み込んだ話というよりはひとつの活用事例として
+
+- ドメインモデルとデータモデルに差分が殆ど無いような場合
+- あえて用意するほどでもない場合
+- 一定規模以下でSQLを書くコストの方が高い場合
+
+- はじめるのが楽
+- Web APIを用意するのが楽
+- 情報が多い
 
 - タイトル
 - 自己紹介
