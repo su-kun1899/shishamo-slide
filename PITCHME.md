@@ -1,6 +1,5 @@
 @title[Title]
-SpringBootとMyBatisでデータベースを可視化する
-=====
+# `SpringBoot` とMyBatisでデータベースを可視化する
 
 JJUG CCC 2017 Fall (2017/11/18)
 
