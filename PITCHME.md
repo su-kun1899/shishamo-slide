@@ -76,6 +76,7 @@ PaDDエンジニア。モブプログラマー。心はいつでもスクラム�
 
 # エンティティ定義書.xls
 
+- 1000以上のオブジェクトが一つのブックに。。
 - 一部最新でないものがあります
 - 一部扱っていないテーブルがあります
 - 一部(ry
@@ -397,6 +398,8 @@ def "HashMap accepts null key"() {
 }
 ```
 
+---
+
 # 強力なMock機構
 
 ```groovy
@@ -435,6 +438,8 @@ def "maximum of two numbers"() {
 - privateコンストラクタも特にMockingなしに呼び出せる程
   - ※例なので、それを呼び出すのがよいというわけではない
 
+---
+
 # インスタンス生成
 
 ```java
@@ -468,16 +473,14 @@ def foo = new Foo(id: 1, name: "sample")
 
 ---
 
-# MockitoでのMocking
+## MockitoでのMocking
 
 ```java
 LinkedList mockedList = mock(LinkedList.class);
 when(mockedList.get(0)).thenReturn("first");
 ```
 
----
-
-# SpockでのMocking
+## SpockでのMocking
 
 ```groovy
 def mockedList = Mock(LinkedList);
@@ -485,7 +488,7 @@ mockedList.get(0) >> "first";
 ```
 ---
 
-# JUnitでのパラメータライズドテスト
+## JUnitでのパラメータライズドテスト
 
 - JUnit5でだいぶ楽になった模様
 - JUnit4だとTheoriesを使ってもっと大変
@@ -495,6 +498,20 @@ mockedList.get(0) >> "first";
 @ValueSource(strings = { "Hello", "World" })
 void testWithStringParameter(String argument) {
     assertNotNull(argument);
+}
+```
+
+# SpockのData Tables
+
+```groovy
+def "with string parameter"() {
+  expect:
+  argument != null
+
+  where:
+  argument | _
+  "Hello"  | _
+  "World"  | _
 }
 ```
 
@@ -530,23 +547,6 @@ void testWithStringParameter(String argument) {
 ---
 
 # Spockに触ってみてください
-
----
-
-# SpockのData Tables
-
-```groovy
-def "maximum of two numbers"() {
-  expect:
-  Math.max(a, b) == c
-
-  where:
-  a | b || c
-  1 | 3 || 3
-  7 | 4 || 7
-  0 | 0 || 0
-}
-```
 
 ---
 
