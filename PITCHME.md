@@ -181,8 +181,6 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 
 # shishamo爆誕
 
-（よーさんが作ったアイコン画像）
-
 ---
 
 # shishamo
@@ -206,7 +204,7 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 
 # shishamo
 
-(画面キャプチャかデモの動画か)
+(画面キャプチャか)
 
 1. MySQLがある
 1. cloneして起動
@@ -353,6 +351,202 @@ $ ./mvnw spring-boot:run \
 - それでもデータ構造に引きずられなくて済むのは大きな利点
 - DB定義変更のためにドメインモデルに手を入れたり、DTOやEntityのような一時受けクラスが不要になる
   - (余談ですが)そうなってきたらORマッパーの載せ替えを検討した方がいいと思う
+
+---
+
+# MyBatisという選択肢を手に入れよう
+
+---
+
+# Spock
+
+- Java/Groovyアプリケーションのためのテスティングフレームワーク
+- Groovyで書きます（Javaでも書けるけど）
+
+---
+
+# Spockは最高です
+
+- 今日一番言いたいことといっても過言ではない
+- shishamoはGitHubにGroovyプロジェクトと思われている
+
+---
+
+# Spockのいいところ
+
+- given/when/then等のブロック
+- 強力なMock機構
+- Data Tablesによるパラメータライズドテスト
+- 低い学習コスト
+- and more
+
+---
+
+# given/when/then等のブロック
+
+```groovy
+def "HashMap accepts null key"() {
+  setup:
+  def map = new HashMap()
+
+  when:
+  map.put(null, "elem")
+
+  then:
+  notThrown(NullPointerException)
+}
+```
+
+# 強力なMock機構
+
+```groovy
+setup:
+subscriber.receive("message1") >> "ok"
+
+when:
+publisher.send("message1")
+
+then:
+1 * subscriber.receive("message1")
+```
+
+---
+
+# Data Tables
+
+```groovy
+def "maximum of two numbers"() {
+  expect:
+  Math.max(a, b) == c
+
+  where:
+  a | b || c
+  1 | 3 || 3
+  7 | 4 || 7
+  0 | 0 || 0
+}
+```
+
+---
+
+# Groovyの柔軟性
+
+- Javaに比べると「何でもあり」な感覚に陥る
+- privateコンストラクタも特にMockingなしに呼び出せる程
+  - ※例なので、それを呼び出すのがよいというわけではない
+
+# インスタンス生成
+
+```java
+public class Foo {
+  private long id;
+  private String name;
+  // アクセサ省略
+}
+```
+
+---
+
+# インスタンス生成
+
+- 特にコンストラクタがなくても値セットで生成できる
+
+```groovy
+def foo = new Foo(id: 1, name: "sample")
+```
+
+---
+
+# JUnit？
+
+- JUnitは偉大
+- テストでやりたいことは JUnit/Mockito/PowerMock があればほぼ実現できる
+
+---
+
+# なぜSpockなのか？
+
+---
+
+# MockitoでのMocking
+
+```java
+LinkedList mockedList = mock(LinkedList.class);
+when(mockedList.get(0)).thenReturn("first");
+```
+
+---
+
+# SpockでのMocking
+
+```groovy
+def mockedList = Mock(LinkedList);
+mockedList.get(0) >> "first";
+```
+---
+
+# JUnitでのパラメータライズドテスト
+
+- JUnit5でだいぶ楽になった模様
+- JUnit4だとTheoriesを使ってもっと大変
+
+```java
+@ParameterizedTest
+@ValueSource(strings = { "Hello", "World" })
+void testWithStringParameter(String argument) {
+    assertNotNull(argument);
+}
+```
+
+---
+
+# JUnit
+
+- やりたいことはできるけど、覚えることが多い
+- テストを書いているときに、何かを調べていることが多い
+  - voidメソッドのMockどうやって書くんだっけ。。
+  - パラメータライズドテストのアノテーションなんだっけ。。
+  - etc
+
+---
+
+# Spock
+
+- 記法がシンプル
+- 本質的な「どうやって何をテストする」を考える時間が増える
+- いい意味で雑に書ける
+  - テストを書くのが大変だと、書く気がなくなる
+
+---
+
+# いろいろ言いましたが
+
+- 触ってみてはじめて良さが分かると思います
+- 以前導入に反対したことがあります
+  - 別言語で新しいフレームワーク導入怖かった
+  - そのときはJUnitにしました
+  - 今でも冗談でいじられます
+
+---
+
+# Spockに触ってみてください
+
+---
+
+# SpockのData Tables
+
+```groovy
+def "maximum of two numbers"() {
+  expect:
+  Math.max(a, b) == c
+
+  where:
+  a | b || c
+  1 | 3 || 3
+  7 | 4 || 7
+  0 | 0 || 0
+}
+```
 
 ---
 
