@@ -300,25 +300,218 @@ $ ./mvnw spring-boot:run \
 
 ---
 
-# MyBatis
+# コード例
 
-- SQLベースのマッピングが強力
-- SQLを書きたい時に向いている
+- ざっくりいうとXMLにSQLとマッピング定義を書きます
+- ifや繰り返しの制御文も書けます（今日は紹介しません）
+  - MyBatisの強力さはマッピングにあると思うので
 
 ---
 
-# コード例
+# model
 
 ```java
-// TODO
+public class User {
+  private int id;
+  private String name;
+  private String sex;
+  // アクセサは省略
+}
 ```
+
+---
+
+# interface
+
+```java
+@Repository
+@Mapper
+public interface UserRepository {
+  List<User> selectBy(int id);
+}
+```
+---
+
+# Result Map
+
+```xml
+<resultMap id="userResultMap" type="User">
+  <id property="id" column="user_id" />
+  <result property="name" column="user_name"/>
+  <result property="sex" column="user_sex"/>
+</resultMap>
+```
+
+---
+
+# Statement
+
+```xml
+<select id="selectUsers" resultMap="userResultMap">
+  select
+    user_id, 
+    user_name,
+    user_sex
+  from 
+    some_table
+  where 
+    id = #{id}
+</select>
+```
+
+---
+
+# めんどくさそうと感じたのは正解です
+
+---
+
+# Auto Mappingを使う
+
+- MyBatisが列名と同じ名前を持つプロパティを探す
+- 列名はエイリアスで揃えることができる
+
+---
+
+# Result Map
+
+- autoMapping属性をつけてやればよい
+- グローバルに設定することも可能
+
+```xml
+<resultMap id="userResultMap" type="User" autoMapping="true" />
+```
+
+---
+
+# Statement
+
+- エイリアスで、同名で取れるようにしてあげればよい
+
+```xml
+<select id="selectUsers" resultMap="userResultMap">
+  select
+    user_id     as id,
+    user_name   as name
+    sex         as sex
+  from 
+    some_table
+  where
+    id = #{id}
+</select>
+```
+
+---
+
+# 便利そうな雰囲気が出てきました！
+
+---
+
+# ネストしたオブジェクト
+
+- 1 対 1
+
+---
+
+# User 
+
+| user_id | user_name| user_sex | address_id |
+|---|---|---|---|
+|1|yamada|male|11|
+|2|sato|female|12|
+
+# Address
+
+|address_id| address_city |
+|---|---|
+|11|tokyo|
+|12|osaka|
+
+---
+
+# こんな感じで取りたい
+
+| user_id | user_name| user_sex |address_id| address_city |
+|---|---|---|---|---|---|
+|1|yamada|male|11|tokyo|
+|2|sato|female|12|osaka|
+
+---
+
+# model
+
+```java
+public class User {
+    private Address address;
+    private int id;
+    private String name;
+    private String sex;
+    // アクセサは省略
+}
+
+public class Address {
+    private int id;
+    private String city;
+    // アクセサは省略
+}
+```
+
+---
+
+# Result Map
+
+- オブジェクトを一意にするカラムをidで定義
+- resultMapは個別に定義する（再利用も可能）
+- associationで紐づきを定義
+- columnPrefixを使うとSQLで名前重複を回避できる
+
+```xml
+<resultMap id="userResultMap" type="User" autoMapping="true" columnPrefix="user_">
+  <id column="id"/>
+  <association property="address" resultMap="addressResultMap"  columnPrefix="address_"/>
+</resultMap>
+<resultMap id="addressResultMap" type="Address" autoMapping="true">
+  <id property="id" column="id"/>
+</resultMap>
+```
+
+---
+
+# Statement
+
+- エイリアスで、同名で取れるようにしてあげればよい
+- columnPrefixが対象のオブジェクトに紐付けてくれる
+
+```xml
+<select id="selectUsers" resultMap="userResultMap">
+  select
+    some_table.user_id    as user_id,
+    some_table.user_name  as user_name,
+    some_table.sex        as user_sex,
+    address.address_id    as address_id,
+    address.address_city  as address_city
+  from 
+    some_table
+    inner join 
+    address on some_table.address_id = address.address_id
+  where
+    id = #{id}
+</select>
+```
+
+---
+
+# どんなときにMyBatis？
+
+- SQLベースのマッピングが強力
+- マッピング定義記述コストを下げる工夫がされている
+- つまり、SQLを書きたい時に向いている
 
 ---
 
 # SQLを書きたい時？
 
 - データモデルが一定の規模以上になり、ドメインモデルとの差分が大きくなっている
-- データベースの変更コストが高い（あるいはかけられない）
+- データベースの変更コストが高い
 
 ---
 
@@ -333,7 +526,7 @@ $ ./mvnw spring-boot:run \
 
 - データモデルからドメインモデルに詰め替えるような処理が想定されるならMyBatisを選択する価値はある
 - アプリケーションレイヤで扱うオブジェクトがDB構造と一致する（ようにする）のであれば別の選択肢の方がいい
-  - いわゆるORマッパー 
+  - いわゆるORマッパー
 
 ---
 
@@ -351,6 +544,7 @@ $ ./mvnw spring-boot:run \
 - それでもデータ構造に引きずられなくて済むのは大きな利点
 - DB定義変更のためにドメインモデルに手を入れたり、DTOやEntityのような一時受けクラスが不要になる
   - (余談ですが)そうなってきたらORマッパーの載せ替えを検討した方がいいと思う
+- データモデルにドメインモデルが引きずられるのは本末転倒な気がする
 
 ---
 
