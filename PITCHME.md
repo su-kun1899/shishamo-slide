@@ -1,29 +1,41 @@
-@title[Title]
 # `SpringBoot` とMyBatisでデータベースを可視化する
 
-JJUG CCC 2017 Fall (2017/11/18)
+2017/11/18 JJUG CCC 2017 Fall (#ccc_l1)
 
 ---
-
-@title[Title]
 
 # 自己紹介
 
 ## @su_kun_1899
 
-![icon](https://pbs.twimg.com/profile_images/751787309322821633/BqUIbey1_400x400.jpg)
-
 PaDDエンジニア。モブプログラマー。心はいつでもスクラムマスター。  
-もっと楽しく仕事をする「PaDD」こと「Passion Driven Development」を心情に、自分が今いる現場を少しでも改善しようと日々奮闘してます。
+もっと楽しく仕事をする「PaDD」こと「Passion Driven Development」を心情に、自分が今いる現場を少しでも改善しようと日々奮闘中。
+
+今は株式会社エス・エム・エスで介護事業所向けのWebサービス開発してます。
 
 ---
 
-@title[Title]
 # 今日話すこと
 
-- レガシーシステムと戦う切り口として、データ構造の可視化が大切
-- MySQLのデータ構造を可視化するSpring Bootアプリケーションを作った
-- Spring Boot, MyBatis, Spockを使ってみた
+- レガシーシステムと戦うのはデータ構造の可視化が大切という話
+- MySQLのデータ構造を可視化するSpring Bootアプリケーションを作った話
+- Spring Bootで始めようという話
+- MyBatisってどんな感じなのか、どういうとき使うとよさそうかの話
+- Spockが最高という話
+
+※あまり技術を深掘りした話はしません。何かを始めるきっかけやヒントとして助けになれば。
+
+---
+
+# フィードバック下さい
+
+`#ccc_l1`
+
+---
+
+# shishamoデモ
+
+- こんなものを作りました
 
 ---
 
@@ -896,45 +908,3 @@ def "with string parameter"() {
 # おしまい
 
 > Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.
-
----
-
-# ネタ
-
-- ハッシュタグタイトルに入れよう
-  - フィードバック下さい
-
-- SpringBootの話はあんまりしません
-  - 踏み込んだ話というよりはひとつの活用事例として
-
-- ドメインモデルとデータモデルに差分が殆ど無いような場合
-- あえて用意するほどでもない場合
-- 一定規模以下でSQLを書くコストの方が高い場合
-
-- はじめるのが楽
-- Web APIを用意するのが楽
-- 情報が多い
-
-- タイトル
-- 自己紹介
-- 今日伝えたいこと
-  - 可視化大事
-  - 世界は便利になっている
-  - なんか作ってみよう
-- 今日話すこと
-  - Spring BootでDBの可視化ツールを作った
-    - なぜ作ったのか
-    - どうやって作ったのか
-    - 作ってみてどうだったのか
-- データベースの可視化
-  - レガシーシステムではデータ構造を抑えるのが肝
-  - descやshow create tableを手打ちする生活
-- SchemaSpy
-  - マイクロサービスアーキテクチャ読んで知った
-- Spring Boot
-- My Batis
-- Spock
-- Maven
-- IntelliJ IDEA
-- オチ
-  - Kotlinで書き換えるプルリクが来た
