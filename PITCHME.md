@@ -428,7 +428,7 @@ public interface UserRepository {
 
 ---
 
-# こんな感じで取りたい
+# こんな感じで取る
 
 | user_id | user_name| user_sex |address_id| address_city |
 |---|---|---|---|---|---|
@@ -494,7 +494,114 @@ public class Address {
     inner join 
     address on some_table.address_id = address.address_id
   where
-    id = #{id}
+    some_table.id = #{id}
+</select>
+```
+
+---
+
+# ネストしたオブジェクト
+
+- 1 対 多
+
+---
+
+# User 
+
+| user_id | user_name| user_sex | address_id |
+|---|---|---|---|
+|1|yamada|male|11|
+|2|sato|female|12|
+
+# Hobby
+
+|hobby_id| hobby_name |
+|---|---|
+|21|football|
+|22|runnning|
+|23|video game|
+|24|programming|
+
+# User_Hobby
+
+| user_id | hobby_id |
+|---|---|
+| 1 | 21 |
+| 1 | 23 |
+| 1 | 24 |
+| 2 | 22 |
+| 2 | 24 |
+
+---
+
+# こんな感じで取る
+
+| user_id | user_name| user_sex |hobby_id| hobby_name |
+|---|---|---|---|---|---|
+|1|yamada|male|21|football|
+|1|yamada|male|23|video game|
+|1|yamada|male|24|programming|
+|2|sato|female|22|runnning|
+|2|sato|female|24|programming|
+
+---
+
+# model
+
+```java
+public class User {
+    private Address address;
+    private int id;
+    private String name;
+    private String sex;
+    private List<Hobby> hobbies;
+    // アクセサは省略
+}
+
+public class Hobby {
+    private int id;
+    private String name;
+    // アクセサは省略
+}
+```
+
+---
+
+# Result Map
+
+- collectionタグで紐付ける
+- idタグの定義が階層を特定する
+
+```xml
+<resultMap id="userResultMap" type="User" autoMapping="true" columnPrefix="user_">
+  <id column="id"/>
+  <collection property="hobbies" ofType="Hobby" resultMap="hobbyResultMap" columnPrefix="hobby_"/>
+</resultMap>
+<resultMap id="hobbyResultMap" type="Hobby" autoMapping="true">
+  <id property="id" column="id"/>
+</resultMap>
+```
+
+---
+
+# Statement
+
+```xml
+<select id="selectUsers" resultMap="userResultMap">
+  select
+    some_table.user_id    as user_id,
+    some_table.user_name  as user_name,
+    some_table.sex        as user_sex,
+    hobby.hobby_id        as hobby_id,
+    hobby.hobby_name      as hobby_name
+  from 
+    some_table
+    inner join 
+    user_hobby on some_table.user_id = user_hobby.user_id
+    inner join
+    hobby on user_hobby.hobby_id = hobby.hobby_id
+  where
+    some_table.id = #{id}
 </select>
 ```
 
@@ -503,7 +610,7 @@ public class Address {
 # どんなときにMyBatis？
 
 - SQLベースのマッピングが強力
-- マッピング定義記述コストを下げる工夫がされている
+- マッピング定義の記述コストを下げる工夫がされている
 - つまり、SQLを書きたい時に向いている
 
 ---
@@ -539,7 +646,7 @@ public class Address {
 
 ---
 
-# 本質的にデータモデルとドメインモデルは別物である
+# それでも
 
 - それでもデータ構造に引きずられなくて済むのは大きな利点
 - DB定義変更のためにドメインモデルに手を入れたり、DTOやEntityのような一時受けクラスが不要になる
@@ -580,7 +687,7 @@ public class Address {
 
 ```groovy
 def "HashMap accepts null key"() {
-  setup:
+  given:
   def map = new HashMap()
 
   when:
@@ -596,8 +703,12 @@ def "HashMap accepts null key"() {
 # 強力なMock機構
 
 ```groovy
-setup:
+given:
+def subscriber = Mock(Subscriber)
 subscriber.receive("message1") >> "ok"
+
+and:
+def publisher = new Publisher();
 
 when:
 publisher.send("message1")
@@ -739,19 +850,46 @@ def "with string parameter"() {
 
 ---
 
-# Spockに触ってみてください
-
----
-
-# 余談
+# Spockに触ってみよう
 
 ---
 
 # まとめ
 
+---
+
+# shishamo
+
+- データ構造の可視化はレガシーシステム改善の鍵
+- shishamoが少しでもヒントになれば
+
+---
+
+# Spring Boot
+
 - Spring BootでWebアプリ始めるの簡単
+- 想像以上に気軽に始められる
+- Springに乗っかれるので育てやすい
+
+---
+
+# MyBatis
+
 - MyBatisのマッピングはかなり強力
-- Spock最高
+- データモデルとドメインモデルを切り分けたい時の有力な選択肢
+
+---
+
+# Spock
+
+- やってみると離れられなくなる
+- 本当最高なので試してみて下さい
+
+---
+
+# おしまい
+
+> Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.
 
 ---
 
