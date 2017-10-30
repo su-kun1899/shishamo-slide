@@ -887,6 +887,12 @@ def "with string parameter"() {
 
 ---
 
+# 余談
+
+同僚にshishamoを紹介したらすべてKotlinで書き換えるプルリクエストが送られてきたことをここにご報告します。
+
+---
+
 # おしまい
 
 > Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.
