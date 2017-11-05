@@ -41,7 +41,7 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 
 ---
 
-# Introduction
+# [fit]Introduction
 
 ---
 
@@ -49,7 +49,7 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 
 ---
 
-![original](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/monitor.png)
+![](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/monitor.png)
 
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/ide.jpg)
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/browser.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/document.jpg)
@@ -62,7 +62,7 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 
 ---
 
-![original](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/monitor.png)
+![](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/monitor.png)
 
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/table.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/column.jpg)
 
@@ -131,9 +131,8 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-# どう戦うか？
-
-- よく分からないものを分かるようにする
+> どう戦うか？
+-- よく分からないものを分かるようにする
 
 ---
 
@@ -146,13 +145,12 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-# 最終的に実現したいこと、がデータに表れていることが多い
+# [fit]「最終的に実現したいこと」は<br/>データに表れていることが多い
 
 ---
 
-# どう戦うか？
-
-- データ構造を抑える
+> どう戦うか？
+-- データ構造を抑える
 
 ---
 
