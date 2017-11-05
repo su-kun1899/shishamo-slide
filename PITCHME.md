@@ -1,3 +1,5 @@
+slidenumbers: true
+autoscale: true
 <!-- Theme: Courier の水色 -->
 
 ## SpringBootとMyBatisで<br/>データベースを可視化する
