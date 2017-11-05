@@ -160,6 +160,8 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
+![](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/exceldoc.png)
+
 # エンティティ定義書.xls
 
 - 1000以上のオブジェクトが一つのブックに。。
@@ -181,9 +183,9 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-# 信じられるのはコードだけ
-
-今どうなっているか、が唯一の真実
+> 信じられるのは
+> コードだけ
+-- 今どうなっているか、が唯一の真実
 
 ---
 
