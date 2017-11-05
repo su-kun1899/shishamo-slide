@@ -222,15 +222,10 @@ show create table hoge_table;
 - table, view, column, procedureの情報を読み取り専用Viewとして提供
 - 標準SQLで定義されている
 
-```sql
-SELECT count(table_name) FROM information_schema.tables;
-  count 
- -------
-     99
- (1 row)
-
+```sql, [.highlight: 4-7]
 SELECT column_name, data_type, column_default, is_nullable
        FROM information_schema.columns WHERE table_name='alpha';
+
   column_name | data_type | column_default | is_nullable 
  -------------+-----------+----------------+-------------
   foo         | integer   |                | YES
@@ -240,12 +235,15 @@ SELECT column_name, data_type, column_default, is_nullable
 
 https://en.wikipedia.org/wiki/Information_schema
 
+^名前、定義、制約。。大体なんでも入ってる
+^RDBMS毎に差分はある模様
+
 ---
 
 # SchemaSpy
 
 - マイクロサービスアーキテクチャで知った
-- Information Schemaの情報を元にHTMLを生成
+- Information Schemaを元にHTMLを生成
 
 ### [fit]**(参考)<br/>https://qiita.com/su-kun1899/items/b106a1a643bf49df164d**
 
@@ -286,21 +284,17 @@ https://en.wikipedia.org/wiki/Information_schema
 
 ---
 
-# shishamo
+# すぐ使える
 
 1. git clone
 1. 引数に接続先DBを指定してboot:run
 1. ブラウザアクセス
 
----
-
-# READMEより
-
 ```console
 $ git clone git@github.com:su-kun1899/shishamo.git
 $ cd shishamo/
 $ ./mvnw spring-boot:run \
-    -Dspring.datasource.url=jdbc:mysql://<Your mysql host: localhost>>:<Your mysql port: 3306>/<Your mysql schema> \
+    -Dspring.datasource.url=<Your database url> \
     -Dspring.datasource.schema=<Your mysql schema> \
     -Dspring.datasource.username=<Your mysql user> \
     -Dspring.datasource.password=<Your mysql password>
@@ -324,10 +318,10 @@ $ ./mvnw spring-boot:run \
 
 ---
 
-# ここまでのまとめ
-
-- 「今どうなってるか」を正確に表すドキュメントは強い
-- shishamo便利ですので使ってみて下さい！
+# [fit]「今どうなってるか」を
+# [fit]<br/>正確に表すドキュメントは
+# <br/>強い
+### <br/><br/>**shishamo使ってみて下さい！**
 
 ---
 
