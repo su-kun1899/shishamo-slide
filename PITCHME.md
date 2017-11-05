@@ -65,7 +65,6 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 ![](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/monitor.png)
 
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/table.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/column.jpg)
-
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/index.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/relation.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/etc.jpg)
 
 ^ これはあんまりイメージがない
