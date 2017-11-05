@@ -22,8 +22,8 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 
 # 今日話すこと
 
-- レガシーシステムと戦うのはデータ構造の可視化が大切という話
 - MySQLのデータ構造を可視化するSpring Bootアプリケーションを作った話
+- レガシーシステムと戦うのはデータ構造の可視化が大切という話
 - Spring Bootで始めようという話
 - MyBatisってどんな感じなのか、どういうとき使うとよさそうかの話
 - Spockが最高という話
@@ -32,15 +32,70 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 
 ---
 
-# フィードバック下さい
+# [fit]フィードバック下さい
+## <br/>#ccc_l1
 
-`#ccc_l1`
+![inline right 80%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/ojigi_boy.png)
 
 ---
 
-# shishamoデモ
+# Introduction
 
-- こんなものを作りました
+---
+
+# [fit]開発してる時何見てますか？
+
+---
+
+![original](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/monitor.png)
+
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/ide.jpg)
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/browser.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/document.jpg)
+
+^ ドキュメントブラウザで見てるとかはあるかもしれないけど、大体こんな感じなんじゃないかなー、と。
+
+---
+
+# [fit]DB定義ってどうやって確認してますか？
+
+---
+
+![original](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/monitor.png)
+
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/table.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/column.jpg)
+
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/index.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/relation.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/etc.jpg)
+
+^ これはあんまりイメージがない
+^ MySQLワークベンチとか、OBBRとか、IDE組み込みのソフト？
+^ 何かしらのドキュメント？
+^ DB直接見に行っちゃう？
+
+---
+
+# [fit]shishamoというツールを作りました
+
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo.png)
+
+https://github.com/su-kun1899/shishamo
+
+---
+
+# shishamo?
+
+- MySQLのメタ情報を可視化するWebアプリケーション
+- オンラインでInformation Schemaにクエリを発行する
+- ししゃもはイルカの餌らしいので、MySQLのマスコットにあやかって命名
+
+^ あのバンドには関係ありません
+
+---
+
+# demo
+
+---
+
+# 拍手どうぞ
 
 ---
 
@@ -48,9 +103,11 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 
 ---
 
-# `SpringBoot` とMyBatisでデータベースを可視化する
+## SpringBootとMyBatisで<br/>データベースを可視化する
 
-2017/11/18 JJUG CCC 2017 Fall (#ccc_l1)
+### 2017/11/18 JJUG CCC 2017 Fall
+
+### #ccc_l1
 
 ---
 
@@ -107,6 +164,9 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 - 一部最新でないものがあります
 - 一部扱っていないテーブルがあります
 - 一部(ry
+
+^ マクロの検索機能が提供されていた
+^ 重いこと重いこと
 
 ---
 
@@ -206,14 +266,6 @@ https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
 ---
 
 # shishamo爆誕
-
----
-
-# shishamo
-
-- MySQLのメタ情報を可視化するWebアプリケーション
-- オンラインでInformation Schemaにクエリを発行する
-- ししゃもはイルカの餌らしいので、MySQLのマスコットにあやかって命名
 
 ---
 
