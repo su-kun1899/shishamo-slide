@@ -132,7 +132,7 @@ https://github.com/su-kun1899/shishamo
 よく分からないし、どっかをいじったらどっかが壊れそうなシステム  
 （もしかしたらもう壊れてるのかも。。）  
 
-![inline 60%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/junk_kikai.png)
+![150%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/junk_kikai.png)
 
 ---
 
@@ -161,7 +161,7 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-# そうだ、ER図だ
+# **そうだ、ER図だ**
 
 ---
 
@@ -194,16 +194,17 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-# でも
+# [fit]でも都度DB構造を確認するのはツライ。。
 
 ```sql
-desc hoge_table;
-show create table hoge;
+show create table hoge_table;
 ```
 
-DBにログインして都度構造を確認するのはツライ。。
+![inline right 70%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/pose_atama_kakaeru_man.png)
 
 ---
+
+# どうやら
 
 - システム開発ではデータ構造を抑えるのが重要（ぽい）
 - ドキュメントで表現するのは高コスト（ぽい）
@@ -211,9 +212,8 @@ DBにログインして都度構造を確認するのはツライ。。
 
 ---
 
-# データ構造をどう抑えるか
-
-- メタ情報からデータ構造を可視化する
+> データ構造を<br/>どう抑えるか
+-- メタ情報からデータ構造を可視化する
 
 ---
 
@@ -223,13 +223,13 @@ DBにログインして都度構造を確認するのはツライ。。
 - 標準SQLで定義されている
 
 ```sql
-=> SELECT count(table_name) FROM information_schema.tables;
+SELECT count(table_name) FROM information_schema.tables;
   count 
  -------
      99
  (1 row)
 
- => SELECT column_name, data_type, column_default, is_nullable
+SELECT column_name, data_type, column_default, is_nullable
        FROM information_schema.columns WHERE table_name='alpha';
   column_name | data_type | column_default | is_nullable 
  -------------+-----------+----------------+-------------
@@ -238,7 +238,6 @@ DBにログインして都度構造を確認するのはツライ。。
  (2 rows)
 ```
 
-(引用元)
 https://en.wikipedia.org/wiki/Information_schema
 
 ---
@@ -248,8 +247,7 @@ https://en.wikipedia.org/wiki/Information_schema
 - マイクロサービスアーキテクチャで知った
 - Information Schemaの情報を元にHTMLを生成
 
-(参考)
-https://qiita.com/su-kun1899/items/b106a1a643bf49df164d
+### [fit]**(参考)<br/>https://qiita.com/su-kun1899/items/b106a1a643bf49df164d**
 
 ---
 
