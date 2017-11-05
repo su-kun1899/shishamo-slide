@@ -113,6 +113,10 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
+# [fit]shishamoはレガシーシステムと戦うために生まれました
+
+---
+
 # レガシーシステム？
 
 - 複雑に肥大化
