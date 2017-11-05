@@ -147,6 +147,8 @@ https://github.com/su-kun1899/shishamo
 
 # [fit]「最終的に実現したいこと」は<br/>データに表れていることが多い
 
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/in-out.png)
+
 ---
 
 > どう戦うか？
