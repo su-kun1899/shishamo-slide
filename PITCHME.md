@@ -113,7 +113,7 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-# [fit]shishamoはレガシーシステムと戦うために生まれました
+# [fit]**shishamoは**レガシーシステム**と戦うために生まれました**
 
 ---
 
@@ -131,7 +131,9 @@ https://github.com/su-kun1899/shishamo
 # 要は
 
 よく分からないし、どっかをいじったらどっかが壊れそうなシステム  
-（もしかしたらもう壊れてるのかも。。）
+（もしかしたらもう壊れてるのかも。。）  
+
+![inline 60%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/junk_kikai.png)
 
 ---
 
