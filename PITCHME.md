@@ -1,12 +1,18 @@
-# `SpringBoot` とMyBatisでデータベースを可視化する
+<!-- Theme: Courier の水色 -->
 
-2017/11/18 JJUG CCC 2017 Fall (#ccc_l1)
+## SpringBootとMyBatisで<br/>データベースを可視化する
+
+### 2017/11/18 JJUG CCC 2017 Fall
+
+### #ccc_l1
 
 ---
 
+![right fit](image2.jpg)
+
 # 自己紹介
 
-## @su_kun_1899
+## @su\_kun\_1899
 
 PaDDエンジニア。モブプログラマー。心はいつでもスクラムマスター。  
 もっと楽しく仕事をする「PaDD」こと「Passion Driven Development」を心情に、自分が今いる現場を少しでも改善しようと日々奮闘中。
