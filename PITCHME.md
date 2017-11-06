@@ -139,6 +139,8 @@ https://github.com/su-kun1899/shishamo
 
 ![150%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/junk_kikai.png)
 
+^設計書読んでもよく分からん、アプリのコードはカオス、ドメイン知識も足りない
+
 ---
 
 > どう戦うか？
