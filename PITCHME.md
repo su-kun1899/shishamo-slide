@@ -251,9 +251,11 @@ https://en.wikipedia.org/wiki/Information_schema
 
 # SchemaSpy
 
-- めっちゃよい
+#### めっちゃよいです
 
-（画面キャプチャ）
+![right 70%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/schemaspy.png)
+
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/schemaspy2.png)
 
 ---
 
