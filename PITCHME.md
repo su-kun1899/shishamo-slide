@@ -253,9 +253,11 @@ https://en.wikipedia.org/wiki/Information_schema
 
 #### めっちゃよいです
 
-![right 70%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/schemaspy.png)
+![fit right](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/schemaspy.png)
 
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/schemaspy2.png)
+
+^どこかでみたことのある見た目です。<br/>shishamoの発想はSchemaSpyがなければ生まれませんでした。
 
 ---
 
