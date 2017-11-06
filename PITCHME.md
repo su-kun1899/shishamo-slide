@@ -274,7 +274,9 @@ https://en.wikipedia.org/wiki/Information_schema
 
 ---
 
-# shishamo爆誕
+# [fit]shishamo
+
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo.png)
 
 ---
 
@@ -306,9 +308,18 @@ $ ./mvnw spring-boot:run \
 
 ---
 
-# shishamo
+# Simple
 
-(画面キャプチャ)
+- Table一覧
+- Table定義
+- Column定義
+- Index定義
+- Relation
+- show create table
+
+---
+
+![inline fit](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo-table.png)
 
 ---
 
