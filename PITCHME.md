@@ -303,7 +303,7 @@ https://en.wikipedia.org/wiki/Information_schema
 1. 引数に接続先DBを指定してboot:run
 1. ブラウザアクセス
 
-```console
+```
 $ git clone git@github.com:su-kun1899/shishamo.git
 $ cd shishamo/
 $ ./mvnw spring-boot:run \
@@ -382,7 +382,7 @@ $ ./mvnw spring-boot:run \
 
 # [fit]ちょっと作ってみようが高品質
 
-- 雑に作ったツールが思いの外広まってカオス化したことないですか？
+雑に作ったツールが思いの外広まってカオス化したことないですか？
 
 ^気軽に作っているものでも、プロダクションレベルで
 
@@ -466,7 +466,7 @@ public interface UserRepository {
 
 ---
 
-# めんどくさそうと感じたのは正解です
+# [fit]めんどくさそうと感じたなら正解です
 
 ---
 
@@ -482,8 +482,12 @@ public interface UserRepository {
 - autoMapping属性をつけてやればよい
 - グローバルに設定することも可能
 
-```xml
-<resultMap id="userResultMap" type="User" autoMapping="true" />
+```xml, [.highlight: 1,5]
+<resultMap id="userResultMap" type="User" autoMapping="true">
+  <!-- <id property="id" column="user_id" /> -->
+  <!-- <result property="name" column="user_name"/> -->
+  <!-- <result property="sex" column="user_sex"/> -->
+</resultMap>
 ```
 
 ---
@@ -492,11 +496,11 @@ public interface UserRepository {
 
 - エイリアスで、同名で取れるようにしてあげればよい
 
-```xml
+```xml, [.highlight: 3-5]
 <select id="selectUsers" resultMap="userResultMap">
   select
     user_id     as id,
-    user_name   as name
+    user_name   as name,
     sex         as sex
   from 
     some_table
