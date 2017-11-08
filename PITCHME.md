@@ -829,7 +829,7 @@ idタグの定義が階層を特定する
 
 ---
 
-# given/when/then等のブロック
+# [fit]given/when/then等のブロック
 
 ```groovy
 def "HashMap accepts null key"() {
@@ -919,7 +919,7 @@ def foo = new Foo(id: 1, name: "sample")
 
 ---
 
-# なぜSpockなのか？
+# [fit]なぜSpockなのか？
 
 ---
 
@@ -929,6 +929,8 @@ def foo = new Foo(id: 1, name: "sample")
 LinkedList mockedList = mock(LinkedList.class);
 when(mockedList.get(0)).thenReturn("first");
 ```
+
+---
 
 ## SpockでのMocking
 
@@ -940,9 +942,6 @@ mockedList.get(0) >> "first";
 
 ## JUnitでのパラメータライズドテスト
 
-- JUnit5でだいぶ楽になった模様
-- JUnit4だとTheoriesを使ってもっと大変
-
 ```java
 @ParameterizedTest
 @ValueSource(strings = { "Hello", "World" })
@@ -950,6 +949,11 @@ void testWithStringParameter(String argument) {
     assertNotNull(argument);
 }
 ```
+
+- JUnit5でだいぶ楽になった模様
+- JUnit4だとTheoriesを使ってもっと大変
+
+---
 
 # SpockのData Tables
 
@@ -986,6 +990,14 @@ def "with string parameter"() {
 
 ---
 
+# [fit]Spockに触ってみよう
+
+---
+
+※Spockのテストを書いてみる話ここに
+
+---
+
 # いろいろ言いましたが
 
 - 触ってみてはじめて良さが分かると思います
@@ -993,10 +1005,6 @@ def "with string parameter"() {
   - 別言語で新しいフレームワーク導入怖かった
   - そのときはJUnitにしました
   - 今でも冗談でいじられます
-
----
-
-# Spockに触ってみよう
 
 ---
 
