@@ -511,7 +511,7 @@ public interface UserRepository {
 
 ---
 
-# 便利そうな雰囲気が出てきました！
+# [fit]便利そうな雰囲気が出てきました！
 
 ---
 
@@ -521,26 +521,27 @@ public interface UserRepository {
 
 ---
 
-# User 
-
-| user_id | user_name| user_sex | address_id |
-|---|---|---|---|
-|1|yamada|male|11|
-|2|sato|female|12|
-
-# Address
+### Address
 
 |address_id| address_city |
 |---|---|
 |11|tokyo|
 |12|osaka|
 
+### User
+
+| user\_id|user\_name| user\_sex | address\_id |
+| --- | ---| --- | --- |
+| Tokyo      | Kantō   | Tokyo    | 11 |
+| Kanagawa   | Kantō   | Yokohama | 12 |
+
+
 ---
 
 # こんな感じで取る
 
-| user_id | user_name| user_sex |address_id| address_city |
-|---|---|---|---|---|---|
+|user<br/>id|user<br/>name|user<br/>sex|address<br/>id| address<br/>city |
+| --- | --- | --- | --- | --- | --- |
 |1|yamada|male|11|tokyo|
 |2|sato|female|12|osaka|
 
@@ -573,15 +574,28 @@ public class Address {
 - associationで紐づきを定義
 - columnPrefixを使うとSQLで名前重複を回避できる
 
+---
+
+# Result Map
+
 ```xml
-<resultMap id="userResultMap" type="User" autoMapping="true" columnPrefix="user_">
+<!-- User -->
+<resultMap id="userResultMap" type="User" 
+      autoMapping="true" columnPrefix="user_">
   <id column="id"/>
-  <association property="address" resultMap="addressResultMap"  columnPrefix="address_"/>
+  <association property="address" 
+        resultMap="addressResultMap"  columnPrefix="address_"/>
 </resultMap>
+<!-- Address -->
 <resultMap id="addressResultMap" type="Address" autoMapping="true">
   <id property="id" column="id"/>
 </resultMap>
 ```
+
+^ オブジェクトを一意にするカラムをidで定義
+resultMapは個別に定義する（再利用も可能）
+associationで紐づきを定義
+columnPrefixを使うとSQLで名前重複を回避できる
 
 ---
 
@@ -589,6 +603,10 @@ public class Address {
 
 - エイリアスで、同名で取れるようにしてあげればよい
 - columnPrefixが対象のオブジェクトに紐付けてくれる
+
+---
+
+# Statement
 
 ```xml
 <select id="selectUsers" resultMap="userResultMap">
@@ -607,6 +625,9 @@ public class Address {
 </select>
 ```
 
+^ エイリアスで、同名で取れるようにしてあげればよい
+columnPrefixが対象のオブジェクトに紐付けてくれる
+
 ---
 
 # ネストしたオブジェクト
@@ -615,23 +636,25 @@ public class Address {
 
 ---
 
-# User 
+### User
 
-| user_id | user_name| user_sex | address_id |
+| user\_id | user\_name| user\_sex | address\_id |
 |---|---|---|---|
 |1|yamada|male|11|
 |2|sato|female|12|
 
-# Hobby
+### Hobby
 
-|hobby_id| hobby_name |
+|hobby\_id| hobby\_name |
 |---|---|
 |21|football|
 |22|runnning|
 |23|video game|
 |24|programming|
 
-# User_Hobby
+---
+
+### User_Hobby
 
 | user_id | hobby_id |
 |---|---|
@@ -674,6 +697,9 @@ public class Hobby {
 }
 ```
 
+^紐付け用のエンティティはいらない
+あくまでデータモデルなので
+
 ---
 
 # Result Map
@@ -681,15 +707,24 @@ public class Hobby {
 - collectionタグで紐付ける
 - idタグの定義が階層を特定する
 
+---
+
+# Result Map
+
 ```xml
-<resultMap id="userResultMap" type="User" autoMapping="true" columnPrefix="user_">
+<resultMap id="userResultMap" type="User" autoMapping="true"
+       columnPrefix="user_">
   <id column="id"/>
-  <collection property="hobbies" ofType="Hobby" resultMap="hobbyResultMap" columnPrefix="hobby_"/>
+  <collection property="hobbies" ofType="Hobby" 
+        resultMap="hobbyResultMap" columnPrefix="hobby_"/>
 </resultMap>
 <resultMap id="hobbyResultMap" type="Hobby" autoMapping="true">
   <id property="id" column="id"/>
 </resultMap>
 ```
+
+^ collectionタグで紐付ける
+idタグの定義が階層を特定する
 
 ---
 
@@ -738,15 +773,17 @@ public class Hobby {
 
 ---
 
-# 本質的にデータモデルとドメインモデルは別物である
+# [fit]データモデルとドメインモデルは<br/>本来別物
 
-- データモデルからドメインモデルに詰め替えるような処理が想定されるならMyBatisを選択する価値はある
+- データモデルとドメインモデルのギャップ解消にMyBatisを選択する価値はある
 - アプリケーションレイヤで扱うオブジェクトがDB構造と一致する（ようにする）のであれば別の選択肢の方がいい
   - いわゆるORマッパー
 
+^エンティティがそのままでアプリケーションレイヤで使えなさそうなら
+
 ---
 
-# MyBatisはそれなりにコストがかかる
+# [fit]MyBatisはそれなりにコストがかかる
 
 - SQLを書かなくてはいけない
 - 学習コスト
@@ -757,14 +794,14 @@ public class Hobby {
 
 # それでも
 
-- それでもデータ構造に引きずられなくて済むのは大きな利点
+- データ構造に引きずられなくて済むのは大きな利点
 - DB定義変更のためにドメインモデルに手を入れたり、DTOやEntityのような一時受けクラスが不要になる
   - (余談ですが)そうなってきたらORマッパーの載せ替えを検討した方がいいと思う
 - データモデルにドメインモデルが引きずられるのは本末転倒な気がする
 
 ---
 
-# MyBatisという選択肢を手に入れよう
+# [fit]MyBatisという選択肢を<br/>手に入れよう
 
 ---
 
