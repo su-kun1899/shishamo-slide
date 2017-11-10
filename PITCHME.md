@@ -831,6 +831,18 @@ idタグの定義が階層を特定する
 
 # [fit]given/when/then等のブロック
 
+- setup
+- given
+- when
+- then
+- expect
+- cleanup
+- where
+
+---
+
+# テストの意図が明白
+
 ```groovy
 def "HashMap accepts null key"() {
   given:
@@ -861,6 +873,25 @@ publisher.send("message1")
 
 then:
 1 * subscriber.receive("message1")
+```
+
+---
+
+# こんなことも
+
+```groovy
+// 引数がhelloのときだけ
+1 * subscriber.receive("hello")
+// 引数がhelloではないときだけ
+1 * subscriber.receive(!"hello")
+// 引数ひとつならなんでも
+1 * subscriber.receive(_)
+// 引数いくつでもなんでも
+1 * subscriber.receive(*_)
+// Stringの引数ひとつならなんでも
+1 * subscriber.receive(_ as String)
+// predicateも使える（引数のsizeが 3 より大きい）
+1 * subscriber.receive({ it.size() > 3 })
 ```
 
 ---
@@ -994,7 +1025,91 @@ def "with string parameter"() {
 
 ---
 
-※Spockのテストを書いてみる話ここに
+# テスト対象クラス
+
+```java
+@Service
+public class UserService {
+    private UserRepository userRepository;
+    // コンストラクタ
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    // テスト対象メソッド
+    @Transactional(readOnly = true)
+    public List<User> findBy(Sex sex) {
+        return userRepository.selectBySex(sex);
+    }
+}
+```
+
+---
+
+# テストクラス
+
+```groovy
+class UserServiceSpec extends Specification {
+    UserService userService
+    UserRepository userRepository;
+
+    def 'Get users by sex'() {
+        given: 'Mocking repository'
+        def userRepository = Mock(UserRepository)
+        userRepository.selectBySex(Sex.MALE) >> {[
+            new User(name: 'Taro', sex: Sex.MALE),
+            new User(name: 'Jiro', sex: Sex.MALE),
+        ]}
+
+        and:
+        def userService = new UserRepository(userRepository)
+
+        when:
+        def actual = userService.get(Sex.MALE)
+
+        then:
+        actual.size() == 2
+        actual.get(0).getName() == 'Taro'
+        actual.get(1).getName() == 'Jiro'
+    }
+}
+```
+
+---
+
+# given
+
+```groovy
+given: 'Mocking repository'
+def userRepository = Mock(UserRepository)
+userRepository.selectBySex(Sex.MALE) >> {[
+    new User(name: 'Taro', sex: Sex.MALE),
+    new User(name: 'Jiro', sex: Sex.MALE),
+]}
+
+and: 'コンストラクタインジェクション最高'
+def userService = new UserRepository(userRepository)
+```
+
+^ブロックには名前付けられる
+^型推論してくれるのでdefでいい<br/>Bootのコンストラクタインジェクションのお陰でフレームワーク依存性無くインスタンス生成
+
+---
+
+# when-then
+
+```groovy
+when:
+def actual = userService.get(Sex.MALE)
+
+then:
+actual.size() == 2
+actual.get(0).getName() == 'Taro'
+actual.get(1).getName() == 'Jiro'
+```
+
+^Groovyは文字列比較はequalsじゃなくてよい
+^thenブロックは暗黙的にassertされる
 
 ---
 
