@@ -775,7 +775,7 @@ idタグの定義が階層を特定する
 
 # [fit]データモデルとドメインモデルは<br/>本来別物
 
-- データモデルとドメインモデルのギャップ解消にMyBatisを選択する価値はある
+- データモデルとドメインモデルのミスマッチ解消にMyBatisを選択する価値はある
 - アプリケーションレイヤで扱うオブジェクトがDB構造と一致する（ようにする）のであれば別の選択肢の方がいい
   - いわゆるORマッパー
 
@@ -815,7 +815,9 @@ idタグの定義が階層を特定する
 # Spockは最高です
 
 - 今日一番言いたいことといっても過言ではない
-- shishamoはGitHubにGroovyプロジェクトと思われている
+- shishamoはGitHubではGroovyプロジェクト
+
+![inline 200% right](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/github.png)
 
 ---
 
@@ -1127,32 +1129,99 @@ actual.get(1).getName() == 'Jiro'
 
 ---
 
-# shishamo
+# [fit]多くのシステムにはRDBMSがある
 
-- データ構造の可視化はレガシーシステム改善の鍵
-- shishamoが少しでもヒントになれば
+App
+
+DB
+
+---
+
+# [fit]DBはシステム全体を支えている
+
+Some tool 人
+App
+
+↓
+
+DB
+
+---
+
+# [fit]DBの寿命はアプリケーションよりも長い
+
+^別にレガシーシステムに限らずそういうもの
+
+---
+
+# [fit]既存のDBを活かした<br/>アプリケーションを<br/>作りたい
+
+^アプリケーションレイヤの置き換え、ツールの開発
+
+---
+
+### 作るの大変そうだな。。<br/>環境の準備できるかな。。
 
 ---
 
 # Spring Boot
 
-- Spring BootでWebアプリ始めるの簡単
-- 想像以上に気軽に始められる
-- Springに乗っかれるので育てやすい
+---
+
+### 設計して実装しよう。。<br/>テーブル定義どうなってたっけ？
+
+---
+
+![original 100%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo.png)
+
+---
+
+### データ構造とモデルがミスマッチかも？<br/>今のSQL資産を活かせないかな？
 
 ---
 
 # MyBatis
 
-- MyBatisのマッピングはかなり強力
-- データモデルとドメインモデルを切り分けたい時の有力な選択肢
+---
+
+### SQLを書こう。。<br/>リレーションどうなってたっけ？<br/>インデックスは？
+
+---
+
+![original 80%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo-table.png)
+
+---
+
+### テストしなくっちゃ。。<br/>楽しくテストを書く方法はないかな？
 
 ---
 
 # Spock
 
-- やってみると離れられなくなる
-- 本当最高なので試してみて下さい
+---
+
+### テストデータが必要だな。。<br/>どのテーブルにどんなデータが必要だろう？
+
+---
+
+![original 80%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo_real.jpg)
+
+---
+
+# 終わりに
+
+- SpringBoot + MyBatis + Spock という開発パック
+  - SpringBootは簡単で高機能
+  - MyBatisのマッピングは強力
+  - Spock最高なので試して下さい
+- 既存資産を活かす際には可視化が大事
+  - 「現状」を正確に表す
+  - ドキュメントにもコードにも頼りすぎない
+  - DBに限った話ではない
+
+^今日お伝えしたかったことのまとめ
+shishamoは一つの実例でしかない
+ドキュメントは実情と乖離し、コードは手間が多い
 
 ---
 
@@ -1165,3 +1234,5 @@ actual.get(1).getName() == 'Jiro'
 # おしまい
 
 > Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.
+
+![inline 50%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo.png)
