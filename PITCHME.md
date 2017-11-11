@@ -1196,7 +1196,7 @@ DB
 
 ---
 
-# Spock
+# Spock!!!
 
 ---
 
@@ -1208,7 +1208,15 @@ DB
 
 ---
 
-# 終わりに
+### そろそろリリースできそうか。。？
+
+---
+
+# [fit]“just run”
+
+---
+
+# 今日言いたかったこと
 
 - SpringBoot + MyBatis + Spock という開発パック
   - SpringBootは簡単で高機能
