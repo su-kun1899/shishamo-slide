@@ -1131,22 +1131,17 @@ thenブロックは暗黙的にassertされる
 
 ---
 
-# [fit]多くのシステムにはRDBMSがある
+# [fit]多くのシステムにはDBがある
 
-App
-
-DB
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/application.jpg)
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/database.jpg)
 
 ---
 
 # [fit]DBはシステム全体を支えている
 
-Some tool 人
-App
-
-↓
-
-DB
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/tool.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/application.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/operation.jpg)
+![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/database.jpg)
 
 ---
 
@@ -1162,7 +1157,7 @@ DB
 
 ---
 
-# [fit]DBの直接操作を<br/>やめたい<br/>共有データベースを<br/>やめたい
+## DBの直接操作を<br/>やめたい<br/>共有データベースを<br/>やめたい
 
 ^そもそも共有データベースをやめたい。API化とか運用ツール
 
