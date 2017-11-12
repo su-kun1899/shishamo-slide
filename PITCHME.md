@@ -59,7 +59,7 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/ide.jpg)
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/browser.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/document.jpg)
 
-^ ドキュメントブラウザで見てるとかはあるかもしれないけど、大体こんな感じなんじゃないかなー、と。
+^ドキュメントブラウザで見てるとかはあるかもしれないけど、大体こんな感じなんじゃないかなー、と。
 
 ---
 
@@ -72,10 +72,10 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/table.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/column.jpg)
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/index.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/relation.jpg)![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/etc.jpg)
 
-^ これはあんまりイメージがない
-^ MySQLワークベンチとか、OBBRとか、IDE組み込みのソフト？
-^ 何かしらのドキュメント？
-^ DB直接見に行っちゃう？
+^これはあんまりイメージがない
+MySQLワークベンチとか、OBBRとか、IDE組み込みのソフト？
+何かしらのドキュメント？
+DB直接見に行っちゃう？
 
 ---
 
@@ -93,7 +93,7 @@ https://github.com/su-kun1899/shishamo
 - オンラインでInformation Schemaにクエリを発行する
 - ししゃもはイルカの餌らしいので、MySQLのマスコットにあやかって命名
 
-^ あのバンドには関係ありません
+^あのバンドには関係ありません
 
 ---
 
@@ -181,8 +181,8 @@ https://github.com/su-kun1899/shishamo
 - 一部扱っていないテーブルがあります
 - 一部(ry
 
-^ マクロの検索機能が提供されていた
-^ 重いこと重いこと
+^マクロの検索機能が提供されていた
+重いこと重いこと
 
 ---
 
@@ -243,7 +243,7 @@ SELECT column_name, data_type, column_default, is_nullable
 https://en.wikipedia.org/wiki/Information_schema
 
 ^名前、定義、制約。。大体なんでも入ってる
-^RDBMS毎に差分はある模様
+RDBMS毎に差分はある模様
 
 ---
 
@@ -264,7 +264,8 @@ https://en.wikipedia.org/wiki/Information_schema
 
 ![inline](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/schemaspy2.png)
 
-^どこかでみたことのある見た目です。<br/>shishamoの発想はSchemaSpyがなければ生まれませんでした。
+^どこかでみたことのある見た目です。
+shishamoの発想はSchemaSpyがなければ生まれませんでした。
 
 ---
 
@@ -376,7 +377,7 @@ $ ./mvnw spring-boot:run \
 
 # [fit]簡単・お手軽 && 高機能・多機能<br/>Springに乗っかっている
 
-^ あるといいながある
+^あるといいながある
 
 ---
 
@@ -592,7 +593,7 @@ public class Address {
 </resultMap>
 ```
 
-^ オブジェクトを一意にするカラムをidで定義
+^オブジェクトを一意にするカラムをidで定義
 resultMapは個別に定義する（再利用も可能）
 associationで紐づきを定義
 columnPrefixを使うとSQLで名前重複を回避できる
@@ -625,7 +626,7 @@ columnPrefixを使うとSQLで名前重複を回避できる
 </select>
 ```
 
-^ エイリアスで、同名で取れるようにしてあげればよい
+^エイリアスで、同名で取れるようにしてあげればよい
 columnPrefixが対象のオブジェクトに紐付けてくれる
 
 ---
@@ -723,7 +724,7 @@ public class Hobby {
 </resultMap>
 ```
 
-^ collectionタグで紐付ける
+^collectionタグで紐付ける
 idタグの定義が階層を特定する
 
 ---
@@ -1094,7 +1095,8 @@ def userService = new UserRepository(userRepository)
 ```
 
 ^ブロックには名前付けられる
-^型推論してくれるのでdefでいい<br/>Bootのコンストラクタインジェクションのお陰でフレームワーク依存性無くインスタンス生成
+型推論してくれるのでdefでいい
+Bootのコンストラクタインジェクションのお陰でフレームワーク依存性無くインスタンス生成
 
 ---
 
@@ -1111,7 +1113,7 @@ actual.get(1).getName() == 'Jiro'
 ```
 
 ^Groovyは文字列比較はequalsじゃなくてよい
-^thenブロックは暗黙的にassertされる
+thenブロックは暗黙的にassertされる
 
 ---
 
@@ -1157,6 +1159,12 @@ DB
 # [fit]既存のDBを活かした<br/>アプリケーションを<br/>作りたい
 
 ^アプリケーションレイヤの置き換え、ツールの開発
+
+---
+
+# [fit]DBの直接操作を<br/>やめたい<br/>共有データベースを<br/>やめたい
+
+^そもそも共有データベースをやめたい。API化とか運用ツール
 
 ---
 
@@ -1222,7 +1230,7 @@ DB
   - SpringBootは簡単で高機能
   - MyBatisのマッピングは強力
   - Spock最高なので試して下さい
-- 既存資産を活かす際には可視化が大事
+- 既存資産を改善するには可視化が大事
   - 「現状」を正確に表す
   - ドキュメントにもコードにも頼りすぎない
   - DBに限った話ではない
