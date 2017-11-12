@@ -1167,7 +1167,7 @@ thenブロックは暗黙的にassertされる
 
 ---
 
-# Spring Boot
+# Spring Boot!
 
 ---
 
@@ -1183,7 +1183,7 @@ thenブロックは暗黙的にassertされる
 
 ---
 
-# MyBatis
+# MyBatis!!
 
 ---
 
