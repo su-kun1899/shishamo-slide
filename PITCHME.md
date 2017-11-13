@@ -629,7 +629,7 @@ columnPrefixを使うとSQLで名前重複を回避できる
     inner join 
     address on some_table.address_id = address.address_id
   where
-    some_table.id = #{id}
+    some_table.user_id = #{id}
 </select>
 ```
 
