@@ -656,7 +656,7 @@ columnPrefixが対象のオブジェクトに紐付けてくれる
 |hobby\_id| hobby\_name |
 |---|---|
 |21|football|
-|22|runnning|
+|22|running|
 |23|video game|
 |24|programming|
 
