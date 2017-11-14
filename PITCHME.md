@@ -1137,7 +1137,7 @@ thenブロックは暗黙的にassertされる
 
 ---
 
-# まとめ
+# Conclusion
 
 ---
 
@@ -1185,7 +1185,7 @@ thenブロックは暗黙的にassertされる
 
 ---
 
-![original 100%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo.png)
+# shishamo!
 
 ---
 
@@ -1201,7 +1201,7 @@ thenブロックは暗黙的にassertされる
 
 ---
 
-![original 80%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo-table.png)
+# shishamo!
 
 ---
 
@@ -1217,7 +1217,7 @@ thenブロックは暗黙的にassertされる
 
 ---
 
-![original 80%](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/shishamo_real.jpg)
+# shishamo!
 
 ---
 
