@@ -892,14 +892,19 @@ then:
 ```groovy
 // 引数がhelloのときだけ
 1 * subscriber.receive("hello")
+
 // 引数がhelloではないときだけ
 1 * subscriber.receive(!"hello")
+
 // 引数ひとつならなんでも
 1 * subscriber.receive(_)
+
 // 引数いくつでもなんでも
 1 * subscriber.receive(*_)
+
 // Stringの引数ひとつならなんでも
 1 * subscriber.receive(_ as String)
+
 // predicateも使える（引数のsizeが 3 より大きい）
 1 * subscriber.receive({ it.size() > 3 })
 ```
