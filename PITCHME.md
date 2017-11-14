@@ -174,7 +174,7 @@ https://github.com/su-kun1899/shishamo
 
 ![](https://raw.githubusercontent.com/su-kun1899/shishamo-slide/master/img/exceldoc.png)
 
-# エンティティ定義書.xls
+# エンティティ定義書.xlsm
 
 - 1000以上のオブジェクトが一つのブックに。。
 - 一部最新でないものがあります
