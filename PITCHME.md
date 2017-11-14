@@ -1079,8 +1079,7 @@ class UserServiceSpec extends Specification {
 
         then:
         actual.size() == 2
-        actual.get(0).getName() == 'Taro'
-        actual.get(1).getName() == 'Jiro'
+        actual.collect { it.name } == ['Taro', 'Jiro']
     }
 }
 ```
@@ -1115,8 +1114,7 @@ def actual = userService.get(Sex.MALE)
 
 then:
 actual.size() == 2
-actual.get(0).getName() == 'Taro'
-actual.get(1).getName() == 'Jiro'
+actual.collect { it.name } == ['Taro', 'Jiro']
 ```
 
 ^Groovyは文字列比較はequalsじゃなくてよい
