@@ -22,23 +22,6 @@ PaDDエンジニア。モブプログラマ。エモ枠。心はいつでもス�
 
 ---
 
-# 今日話すこと
-
-- 前半
-  - レガシーシステムとデータ構造の可視化
-  - shishamoというWebアプリの紹介
-- 後半
-  - shishamoを支える技術
-  - Spring Boot
-  - MyBatis
-  - Spock
-
-※あまり技術を深掘りした話はしません。何かを始めるきっかけやヒントとして助けになれば。
-
-^Bootは情報も多いので、MyBatisを少し厚めに。使い所なんかも話せればなと。
-
----
-
 # [fit]フィードバック下さい
 ## <br/>#ccc_l1
 
@@ -117,6 +100,23 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
+# 今日話すこと
+
+- 前半
+  - レガシーシステムとデータ構造の可視化
+  - shishamoというWebアプリの紹介
+- 後半
+  - shishamoを支える技術
+  - Spring Boot
+  - MyBatis
+  - Spock
+
+※あまり技術を深掘りした話はしません。何かを始めるきっかけやヒントとして助けになれば。
+
+^Bootは情報も多いので、MyBatisを少し厚めに。使い所なんかも話せればなと。
+
+---
+
 # [fit]**shishamoは**レガシーシステム**と戦うために生まれました**
 
 ---
@@ -143,7 +143,7 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-> どう戦うか？
+> **どう戦うか？**
 -- よく分からないものを分かるようにする
 
 ---
@@ -163,7 +163,7 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-> どう戦うか？
+> **どう戦うか？**
 -- データ構造を抑える
 
 ---
@@ -195,8 +195,8 @@ https://github.com/su-kun1899/shishamo
 
 ---
 
-> 信じられるのは
-> コードだけ
+> **信じられるのは**
+> **コードだけ**
 -- 今どうなっているか、が唯一の真実
 
 ---
@@ -219,7 +219,7 @@ show create table hoge_table;
 
 ---
 
-> データ構造を<br/>どう抑えるか
+> **データ構造を<br/>どう抑えるか**
 -- メタ情報からデータ構造を可視化する
 
 ---
@@ -249,10 +249,10 @@ RDBMS毎に差分はある模様
 
 # SchemaSpy
 
-- マイクロサービスアーキテクチャで知った
+- マイクロサービスアーキテクチャ本で知った
 - Information Schemaを元にHTMLを生成
 
-### [fit]**(参考)<br/>https://qiita.com/su-kun1899/items/b106a1a643bf49df164d**
+#### [fit]**(参考)<br/>https://qiita.com/su-kun1899/items/b106a1a643bf49df164d**
 
 ^オライリーの本です
 MSA本で紹介されていたのは示唆に富んでいる。（システムの分割の文脈）
@@ -350,6 +350,8 @@ $ ./mvnw spring-boot:run \
 # <br/>強い
 ### <br/><br/>**shishamo使ってみて下さい！**
 
+^15分くらいでここまでいきたい
+
 ---
 
 # shishamoを支える技術
@@ -440,7 +442,7 @@ public class User {
 @Repository
 @Mapper
 public interface UserRepository {
-  List<User> selectBy(int id);
+  User selectById(int id);
 }
 ```
 ---
@@ -460,13 +462,13 @@ public interface UserRepository {
 # Statement
 
 ```xml
-<select id="selectUsers" resultMap="userResultMap">
+<select id="selectById" resultMap="userResultMap">
   select
     user_id, 
     user_name,
     user_sex
   from 
-    some_table
+    user_table
   where 
     id = #{id}
 </select>
@@ -511,7 +513,7 @@ public interface UserRepository {
     user_name   as name,
     sex         as sex
   from 
-    some_table
+    user_table
   where
     id = #{id}
 </select>
@@ -809,7 +811,7 @@ JPA（Hibernate）なりActiveRecordパターンぽいやつ
 
 ---
 
-# [fit]MyBatisという選択肢を<br/>手に入れよう
+# [fit]MyBatisという<br/>選択肢を<br/>手に入れよう
 
 ---
 
